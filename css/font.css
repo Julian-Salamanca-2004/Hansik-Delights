@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'MarkoOne-Regular';
+    src: url('../tipografias/MarkoOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'InriaSerif-Regular';
+    src: url('../tipografias/InriaSerif-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'InknutAntiqua-Medium';
+    src: url('../tipografias/InknutAntiqua-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'InknutAntiqua-SemiBold';
+    src: url('../tipografias/InknutAntiqua-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'InriaSerif-Light';
+    src: url('../tipografias/InriaSerif-Light.ttf');
+}

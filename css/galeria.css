@@ -1,0 +1,18 @@
+@import url('./styles.css');
+
+.galeria {
+   margin-top: 50px;
+}
+
+.footer {
+   border-top: 1px solid #757474;
+}
+
+.txt_galeria {
+   color: #303030;
+   font-size: 24px;
+   font-family: 'Times New Roman', Times, serif;
+   padding: 0 200px;
+   margin-bottom: 60px;
+   line-height: 36px;
+}
