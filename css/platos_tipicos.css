@@ -53,32 +53,64 @@
 }
 
 /* --- 2. ESTILOS SOLO PARA PC (Pantallas grandes) --- */
-@media (min-width: 1025px) {
-    .cuerpo { padding: 150px 100px 0; }
-    .titulo_principal, .titulo_seccion { font-size: 50px; }
+@media (min-width: 1024px) {
+    .cuerpo {
+        padding: 150px 100px 0;
+    }
 
+    .contenedor_platos_tipicos {
+        padding: 0 100px;
+        gap: 80px; /* Más espacio entre platos en PC */
+    }
+
+    .titulo_principal, .titulo_seccion {
+        font-size: 50px;
+    }
+
+    /* Volvemos al diseño de dos columnas en PC */
     .contenedor_platillo .contenido {
         display: grid;
-        grid-template-columns: 1fr 0.5fr;
+        grid-template-columns: 1.2fr 0.8fr; /* El texto ocupa más espacio */
         align-items: center;
+        text-align: left; /* Texto a la izquierda en PC */
+        gap: 40px;
     }
 
     .contenedor_platillo .contenedor_img_platillo {
-        height: 300px;
+        height: 250px; /* Altura controlada del cuadro gris */
         position: relative;
-        order: 1; /* Vuelve a la derecha en PC */
+        order: 1; /* La imagen vuelve a la derecha */
     }
 
-    /* Aquí reactivamos el efecto de superposición SOLO en PC */
+    /* REACTIVAMOS EL EFECTO DE PC (Imágenes voladoras) */
     .contenedor_platillo .contenedor_img_platillo img {
-        position: absolute !important;
-        top: -8% !important;
-        right: -2% !important;
-        height: 80% !important;
-        width: auto !important;
-        max-width: none !important;
+        position: absolute;
+        width: auto;
+        /* Ajustamos estos valores para que no se vea "dañado" ni gigante */
+        height: 180%; 
+        top: -40%;
+        right: -15%;
     }
 
-    .contenedor_platillo .contenedor_img_platillo.kimchi img { top: -60% !important; }
-    .contenedor_platillo .contenedor_img_platillo.bibimbap img { top: -75% !important; right: -32% !important; }
+    /* Ajustes específicos para cada plato en PC */
+    .contenedor_platillo .contenedor_img_platillo.kimchi img { 
+        height: 160%; 
+        top: -30%; 
+    }
+    
+    .contenedor_platillo .contenedor_img_platillo.bibimbap img { 
+        height: 180%; 
+        top: -50%; 
+        right: -25%; 
+    }
+
+    .contenedor_platillo .contenedor_img_platillo.Bulgogi img { 
+        height: 190%; 
+        top: -60%; 
+    }
+}
+
+.footer {
+    margin-top: 100px;
+    background-color: #D9D9D9;
 }
