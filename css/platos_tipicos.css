@@ -72,9 +72,9 @@
     /* Aquí reactivamos el efecto de superposición SOLO en PC */
     .contenedor_platillo .contenedor_img_platillo img {
         position: absolute !important;
-        top: -5% !important;
-        right: -32% !important;
-        height: 10% !important;
+        top: -8% !important;
+        right: -2% !important;
+        height: 80% !important;
         width: auto !important;
         max-width: none !important;
     }
