@@ -8,7 +8,7 @@ img {
 }
 
 .cuerpo {
-    /* Usamos porcentajes para que el espacio lateral se adapte al ancho de pantalla */
+    /* Paddings flexibles para que respire en PC y móvil */
     padding: 150px 5% 0; 
 }
 
@@ -35,7 +35,7 @@ img {
     width: 100%;
     background-color: #D9D9D9;
     border-radius: 20px;
-    padding: 40px 20px; /* Aumentamos un poco el padding interno */
+    padding: 40px 20px;
     margin-top: 50px;
 }
 
@@ -54,7 +54,8 @@ img {
     color: #093d05;
 }
 
-/* Diseño para PC (Escritorio) */
+/* --- DISEÑO PARA ESCRITORIO (PC) --- */
+/* (Mantenemos el efecto de superposición aquí) */
 .contenedor_platillo .contenido {
     display: grid;
     grid-template-columns: 1fr 0.5fr;
@@ -68,7 +69,6 @@ img {
     position: relative;
 }
 
-/* Estilos de imágenes para PC */
 .contenedor_platillo .contenedor_img_platillo img {
     position: absolute;
     top: -70%;
@@ -92,7 +92,7 @@ img {
     top: -80%;
 }
 
-/* --- MEDIA QUERY PARA MÓVILES Y TABLETS --- */
+/* --- MEDIA QUERY PARA TABLETS Y MÓVILES (RESET DURO) --- */
 @media (max-width: 1024px) {
     .cuerpo, .contenedor_platos_tipicos {
         padding: 120px 20px 0;
@@ -101,39 +101,44 @@ img {
     .titulo_principal, .titulo_seccion {
         font-size: 35px;
     }
-
-    /* En tablets, las imágenes ya no pueden estar tan "afuera" */
-    .contenedor_platillo .contenedor_img_platillo img {
-        right: 0;
-        height: 150%;
-        top: -40%;
-    }
 }
 
 @media (max-width: 768px) {
+    /* 1. Cambiamos Grid por Flex y lo apilamos verticalmente */
     .contenedor_platillo .contenido {
-        grid-template-columns: 1fr; /* Cambia a una sola columna */
+        display: flex;
+        flex-direction: column; 
         text-align: center;
+        gap: 20px;
     }
 
+    /* 2. Pone la imagen ARRIBA del texto en el celular */
     .contenedor_platillo .contenedor_img_platillo {
-        height: auto; /* El alto lo define la imagen */
-        order: -1;    /* Pone la imagen ARRIBA del texto */
-        margin-bottom: 30px;
+        order: -1; 
+        width: 100%;
+        max-width: 300px; /* Tamaño máximo en celulares */
+        height: auto;
+        margin: 0 auto; /* Centramos el contenedor */
+        position: relative; /* Cambiamos a relative para el reset */
         display: flex;
         justify-content: center;
+        align-items: center;
     }
 
-    /* Reset de posición absoluta para que la imagen no se salga de la pantalla */
+    /* 3. RESET TOTAL DE IMÁGENES EN MÓVIL */
+    /* Usamos position: relative y width: 100% para que la imagen fluya normalmente
+       y se quede DENTRO del contenedor gris. Ignoramos los valores de PC. */
     .contenedor_platillo .contenedor_img_platillo img,
     .contenedor_platillo .contenedor_img_platillo.kimchi img,
     .contenedor_platillo .contenedor_img_platillo.bibimbap img,
     .contenedor_platillo .contenedor_img_platillo.Bulgogi img {
-        position: static; 
-        height: auto;
-        width: 100%;
-        max-width: 300px; /* Tamaño máximo en celulares */
-        transform: none;
+        position: relative !important; /* !important asegura el reset */
+        top: 0 !important;
+        right: 0 !important;
+        height: auto !important;
+        width: 100% !important;
+        transform: none !important;
+        margin: 0;
     }
 
     .titulo_principal {
