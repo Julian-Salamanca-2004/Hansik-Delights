@@ -1,12 +1,10 @@
 @import url(./styles.css);
 
-
-* {
-    box-sizing: border-box;
-}
+/* --- 1. ESTILOS PARA EL CELULAR (Móvil Primero) --- */
+* { box-sizing: border-box; }
 
 .cuerpo {
-    padding: 100px 20px 20px;
+    padding: 100px 20px 0; /* Espacio para el menú */
 }
 
 .contenedor_platos_tipicos {
@@ -14,81 +12,51 @@
     flex-direction: column;
     text-align: center;
     gap: 20px;
-    width: 100%;
 }
 
-.titulo_principal {
+.titulo_principal, .titulo_seccion {
     color: #093d05;
-    font-size: 32px;
     font-family: 'InknutAntiqua-SemiBold';
-    margin-bottom: 10px;
-}
-
-.titulo_seccion {
-    color: #093d05;
-    font-size: 24px;
-    font-family: 'InknutAntiqua-SemiBold';
-    margin-bottom: 15px;
-}
-
-.contenedor_platos_tipicos p {
-    color: #303030;
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 28px;
 }
 
 .contenedor_platillo {
     width: 100%;
     background-color: #D9D9D9;
     border-radius: 20px;
-    padding: 25px;
-    margin-top: 30px;
+    padding: 20px;
+    margin-top: 20px;
 }
 
-/* En móvil el contenido va uno debajo de otro */
+/* Apilamos todo en una sola columna */
 .contenedor_platillo .contenido {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: column; 
+    gap: 15px;
 }
 
 .contenedor_platillo .contenedor_img_platillo {
+    order: -1; /* La imagen sale primero (arriba) */
     width: 100%;
-    order: -1; /* Pone la imagen ARRIBA del texto */
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
-/* Imagen contenida y escalada para el celular */
+/* La imagen se queda en su sitio, centrada y sin volar */
 .contenedor_platillo .contenedor_img_platillo img {
-    width: 100%;
-    max-width: 80px; /* Tamaño ideal para que no se vea gigante */
-    height: auto;
-    position: static; /* Quita el posicionamiento de PC */
+    position: static !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    height: auto !important;
+    margin: 0 auto;
+    transform: none !important;
 }
 
-.footer {
-    margin-top: 50px;
-    background-color: #D9D9D9;
-}
+/* --- 2. ESTILOS SOLO PARA PC (Pantallas grandes) --- */
+@media (min-width: 1025px) {
+    .cuerpo { padding: 150px 100px 0; }
+    .titulo_principal, .titulo_seccion { font-size: 50px; }
 
-
-/* 2. ESTILOS SOLO PARA PC (Pantallas mayores a 768px) */
-@media (min-width: 769px) {
-    .cuerpo {
-        padding: 150px 100px 0;
-    }
-
-    .contenedor_platos_tipicos {
-        padding: 0 100px;
-    }
-
-    .titulo_principal, .titulo_seccion {
-        font-size: 50px;
-    }
-
-    /* En PC volvemos a las dos columnas */
     .contenedor_platillo .contenido {
         display: grid;
         grid-template-columns: 1fr 0.5fr;
@@ -98,24 +66,19 @@
     .contenedor_platillo .contenedor_img_platillo {
         height: 300px;
         position: relative;
-        order: 1; /* Vuelve a la derecha */
+        order: 1; /* Vuelve a la derecha en PC */
     }
 
     /* Aquí reactivamos el efecto de superposición SOLO en PC */
     .contenedor_platillo .contenedor_img_platillo img {
-        position: absolute;
-        top: -70%;
-        right: -20%;
-        height: 220%;
-        width: auto;
-        max-width: none;
+        position: absolute !important;
+        top: -70% !important;
+        right: -20% !important;
+        height: 220% !important;
+        width: auto !important;
+        max-width: none !important;
     }
 
-    .contenedor_platillo .contenedor_img_platillo.kimchi img { top: -60%; right: -20%; height: 180%; }
-    .contenedor_platillo .contenedor_img_platillo.bibimbap img { top: -75%; right: -32%; height: 200%; }
-    .contenedor_platillo .contenedor_img_platillo.Bulgogi img { top: -80%; }
-
-    .contenedor_platillo .titulo_seccion {
-        line-height: 80px;
-    }
+    .contenedor_platillo .contenedor_img_platillo.kimchi img { top: -60% !important; }
+    .contenedor_platillo .contenedor_img_platillo.bibimbap img { top: -75% !important; right: -32% !important; }
 }
