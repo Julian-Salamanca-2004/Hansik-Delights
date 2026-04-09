@@ -20,7 +20,7 @@ img {
 
 .titulo_principal, .titulo_seccion {
     color: #093d05;
-    font-size: 50px;
+    font-size: 3rem; /* Cambiado a rem para responsividad */
     font-family: 'InknutAntiqua-SemiBold';
 }
 
@@ -68,8 +68,8 @@ img {
     
     .cuerpo { padding-top: 100px; }
 
-    .titulo_principal { font-size: 30px; }
-    .titulo_seccion { font-size: 24px; line-height: 1.2; }
+    .titulo_principal { font-size: 2rem; }
+    .titulo_seccion { font-size: 1.5rem; line-height: 1.2; }
 
     .contenedor_platillo .contenido {
         display: flex;
@@ -104,6 +104,21 @@ img {
     .contenedor_platos_tipicos, .cuerpo {
         padding-left: 15px;
         padding-right: 15px;
+    }
+}
+
+/* --- DISEÑO PARA TABLETS --- */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .titulo_principal, .titulo_seccion {
+        font-size: 2.5rem;
+    }
+
+    .contenedor_platillo .contenedor_img_platillo {
+        height: 250px; /* Ajuste para tablets */
+    }
+
+    .contenedor_platillo .contenedor_img_platillo img {
+        height: 180%; /* Ajuste menor */
     }
 }
 
