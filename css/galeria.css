@@ -1,8 +1,8 @@
 @import url('./styles.css');
 
-/* 1. ESTILOS PARA MÓVIL (Diseño limpio y centrado) */
+
 .galeria {
-   margin-top: 100px; /* Espacio para que el header no tape el título */
+   margin-top: 100px; 
    text-align: center;
 }
 
@@ -10,11 +10,11 @@
 
 .txt_galeria {
    color: #303030;
-   font-size: 8px; 
+   font-size: 80px; 
    font-family: 'Times New Roman', Times, serif;
-   padding: 0 25px; 
-   margin-bottom: 40px;
-   line-height: 28px;
+   padding: 0 5px; 
+   margin-bottom: 10px;
+   line-height: 8px;
 }
 
 /* En el celular las fotos van una debajo de otra */
