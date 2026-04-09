@@ -20,7 +20,7 @@
 .titulo_principal, .titulo_seccion {
     color: #303030;
     font-size: 30px; /* Tamaño base para móvil */
-    font-family: 'InknutAntiqua-SemiBold';
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .contenedor_platos_tipicos p {
