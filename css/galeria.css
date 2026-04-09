@@ -17,7 +17,7 @@
    line-height: 8px;
 }
 
-/* En el celular las fotos van una debajo de otra */
+
 .galeria-grid {
    display: grid;
    grid-template-columns: 1fr; 
@@ -38,7 +38,7 @@
 }
 
 
-/* 2. ESTILOS PARA PC (Solo pantallas mayores a 768px) */
+
 @media (min-width: 769px) {
     .galeria {
         margin-top: 150px;
@@ -46,13 +46,13 @@
 
     .txt_galeria {
         font-size: 24px;
-        padding: 0 200px; /* Aquí recuperamos el espacio que te gusta para PC */
+        padding: 0 200px; 
         margin-bottom: 60px;
         line-height: 36px;
     }
 
     .galeria-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 columnas en PC */
+        grid-template-columns: repeat(3, 1fr); 
         padding: 0 100px;
     }
 }
