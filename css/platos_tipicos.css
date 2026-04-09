@@ -87,14 +87,14 @@
     }
     
     .contenedor_platillo .contenedor_img_platillo.bibimbap img { 
-        height: 200% !important; 
-        top: -75% !important; 
+        height: 100% !important; 
+        top: -70% !important; 
         right: -32% !important; 
     }
 
     .contenedor_platillo .contenedor_img_platillo.Bulgogi img { 
-        height: 230% !important; 
-        top: -85% !important; 
+        height: 100% !important; 
+        top: -75% !important; 
     }
 
     .contenedor_platillo .titulo_seccion {
