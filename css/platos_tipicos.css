@@ -1,15 +1,40 @@
 @import url(./styles.css);
 
-/* --- 1. RESET --- */
-* { 
-    box-sizing: border-box; 
+/* --- RESET --- */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* --- 2. BASE (MÓVIL) --- */
+/* --- HEADER --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    flex-wrap: wrap;
+}
+
+.logo img {
+    width: 120px;
+}
+
+.contenedor-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+nav ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+}
+
+/* --- BASE (MÓVIL PRIMERO) --- */
 .cuerpo {
-    padding: 80px 15px 0; 
+    padding: 90px 15px 0;
 }
 
 .contenedor_platos_tipicos {
@@ -19,109 +44,125 @@
     gap: 20px;
 }
 
-.titulo_principal, 
+.titulo_principal,
 .titulo_seccion {
     color: #093d05;
     font-family: 'InknutAntiqua-SemiBold';
-    font-size: 24px;
+    font-size: 26px;
 }
 
+p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* --- TARJETAS --- */
 .contenedor_platillo {
     width: 100%;
     background-color: #D9D9D9;
     border-radius: 20px;
-    padding: 15px;
+    padding: 20px 15px;
     margin-top: 20px;
 }
 
-/* MÓVIL */
+/* MÓVIL: TODO EN COLUMNA */
 .contenedor_platillo .contenido {
-    display: flex;
-    flex-direction: column; 
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: center;
     gap: 15px;
 }
 
-.contenedor_platillo .contenedor_img_platillo {
+.contenedor_textos {
+    width: 100%;
+}
+
+/* IMAGEN MÓVIL */
+.contenedor_img_platillo {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.contenedor_platillo .contenedor_img_platillo img {
-    width: 100%;
-    max-width: 250px;
-    height: auto;
+.contenedor_img_platillo img {
+    position: static !important;
+    width: 90% !important;
+    max-width: 260px !important;
+    height: auto !important;
+    transform: none !important;
 }
 
-/* --- 3. TABLET --- */
+/* --- TABLET --- */
 @media (min-width: 768px) {
 
     .cuerpo {
         padding: 100px 40px 0;
     }
 
-    .titulo_principal, 
+    .titulo_principal,
     .titulo_seccion {
         font-size: 36px;
     }
 
     .contenedor_platillo .contenido {
-        display: grid;
+        display: grid !important;
         grid-template-columns: 1fr 1fr;
         align-items: center;
         text-align: left;
         gap: 20px;
     }
 
-    .contenedor_platillo .contenedor_img_platillo img {
-        max-width: 300px;
+    .contenedor_img_platillo img {
+        max-width: 300px !important;
     }
 }
 
-/* --- 4. PC --- */
+/* --- PC (EFECTO PRO) --- */
 @media (min-width: 1025px) {
 
-    .cuerpo { 
-        padding: 150px 100px 0; 
+    .cuerpo {
+        padding: 150px 100px 0;
     }
 
-    .titulo_principal, 
-    .titulo_seccion { 
-        font-size: 50px; 
+    .titulo_principal,
+    .titulo_seccion {
+        font-size: 50px;
     }
 
     .contenedor_platillo .contenido {
         grid-template-columns: 1fr 0.6fr;
     }
 
-    .contenedor_platillo .contenedor_img_platillo {
+    .contenedor_img_platillo {
         position: relative;
         height: 280px;
     }
 
-    .contenedor_platillo .contenedor_img_platillo img {
-        position: absolute;
-        height: 160%;
-        top: -40%;
-        right: -10%;
-        width: auto;
+    /* 🔥 EFECTO PLATO VOLADOR SOLO EN PC */
+    .contenedor_img_platillo img {
+        position: absolute !important;
+        height: 160% !important;
+        top: -40% !important;
+        right: -10% !important;
+        width: auto !important;
+        max-width: none !important;
     }
 
-    /* Ajustes por plato */
-    .kimchi img { 
-        height: 150%; 
-        top: -30%; 
-    }
-    
-    .bibimbap img { 
-        height: 170%; 
-        top: -50%; 
-        right: -20%; 
+    /* ajustes finos */
+    .kimchi img {
+        height: 150% !important;
+        top: -30% !important;
     }
 
-    .bulgogi img { 
-        height: 180%; 
-        top: -60%; 
+    .bibimbap img {
+        height: 170% !important;
+        top: -50% !important;
+        right: -20% !important;
+    }
+
+    .Bulgogi img {
+        height: 180% !important;
+        top: -60% !important;
     }
 
     .contenedor_platillo .titulo_seccion {
@@ -129,133 +170,36 @@
     }
 }
 
-/* --- 5. FOOTER --- */
+/* --- HEADER EN MÓVIL --- */
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .contenedor-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* --- FOOTER --- */
 .footer {
     margin-top: 80px;
     background-color: #D9D9D9;
     padding: 20px;
-}
-header {
+
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 15px;
-    flex-wrap: wrap;
-}
-
-.logo img {
-    width: 120px;
-}
-
-.contenedor-nav {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-nav ul {
-    display: flex;
-    gap: 15px;
-    list-style: none;
-}
-
-/* 📱 MÓVIL */
-@media (max-width: 768px) {
-
-    header {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .contenedor-nav {
-        flex-direction: column;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-@media (min-width: 1025px) {
-
-    .contenedor_img_platillo {
-        position: relative;
-        height: 280px;
-    }
-
-    .contenedor_img_platillo img {
-        position: absolute !important;
-        height: 160% !important;
-        top: -40% !important;
-        right: -10% !important;
-        width: auto !important;
-    }
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    flex-wrap: wrap;
-}
-
-.logo img {
-    width: 120px;
-}
-
-.contenedor-nav {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-nav ul {
-    display: flex;
-    gap: 15px;
-    list-style: none;
-}
-
-/* 📱 MÓVIL */
-@media (max-width: 768px) {
-
-    header {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .contenedor-nav {
-        flex-direction: column;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-/* 🔥 FORZAR RESPONSIVE SOBRE styles.css */
-.contenedor_img_platillo img {
-    position: static !important;
-    transform: none !important;
-    height: auto !important;
-    width: 100% !important;
-    max-width: 250px !important;
-}
-
-@media (min-width: 1025px) {
-
-    .contenedor_img_platillo {
-        position: relative;
-        height: 280px;
-    }
-
-    .contenedor_img_platillo img {
-        position: absolute !important;
-        height: 160% !important;
-        top: -40% !important;
-        right: -10% !important;
-        width: auto !important;
-    }
+    gap: 10px;
+    text-align: center;
 }
