@@ -1,88 +1,152 @@
 @import url(./styles.css);
 
+/* Configuración base para imágenes */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 .cuerpo {
-   padding: 150px 100px 0;
+    /* Usamos porcentajes para que el espacio lateral se adapte al ancho de pantalla */
+    padding: 150px 5% 0; 
 }
 
 .contenedor_platos_tipicos {
-   display: flex;
-   padding: 0px 100px;
-   flex-direction: column;
-   text-align: center;
-   gap: 30px;
+    display: flex;
+    padding: 0 5%;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
 }
 
 .titulo_principal, .titulo_seccion {
-   color: #093d05;
-   font-size: 50px;
-   font-family: 'InknutAntiqua-SemiBold';
+    color: #093d05;
+    font-size: 50px;
+    font-family: 'InknutAntiqua-SemiBold';
 }
 
 .contenedor_platos_tipicos P {
-   color: #303030;
-   font-size: 18px;
+    color: #303030;
+    font-size: 18px;
 }
 
 .contenedor_platillo {
-   width: 100%;
-   background-color: #D9D9D9;
-   border-radius: 20px;
-   padding: 20px;
-   margin-top: 50px;
+    width: 100%;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    padding: 40px 20px; /* Aumentamos un poco el padding interno */
+    margin-top: 50px;
+}
 
-   & .titulo_seccion {
-      line-height: 80px;
-   }
+.contenedor_platillo .titulo_seccion {
+    line-height: 1.2;
+    margin-bottom: 20px;
 }
 
 .contenedor_platillo p {
-   font-size: 18px;
-   color: rgba(0, 0, 0, .75);
+    font-size: 18px;
+    color: rgba(0, 0, 0, .75);
 }
 
 .contenedor_platillo p:nth-child(2) {
-   margin-top: 20px;
-   color: #093d05;
+    margin-top: 20px;
+    color: #093d05;
 }
 
+/* Diseño para PC (Escritorio) */
 .contenedor_platillo .contenido {
-   display: grid;
-   grid-template-columns: 1fr .5fr;
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    align-items: center;
+    gap: 20px;
 }
 
 .contenedor_platillo .contenedor_img_platillo {
-   width: 100%;
-   height: 300px;
-   position: relative;
+    width: 100%;
+    height: 300px;
+    position: relative;
 }
 
+/* Estilos de imágenes para PC */
 .contenedor_platillo .contenedor_img_platillo img {
-   position: absolute;
-   top: -70%;
-   right: -20%;
-   height: 220%;
+    position: absolute;
+    top: -70%;
+    right: -20%;
+    height: 220%;
 }
 
 .contenedor_platillo .contenedor_img_platillo.kimchi img {
-   position: absolute;
-   top: -60%;
-   right: -20%;
-   height: 180%;
+    top: -60%;
+    right: -20%;
+    height: 180%;
 }
 
 .contenedor_platillo .contenedor_img_platillo.bibimbap img {
-   position: absolute;
-   top: -75%;
-   right: -32%;
-   height: 200%;
+    top: -75%;
+    right: -32%;
+    height: 200%;
 }
 
 .contenedor_platillo .contenedor_img_platillo.Bulgogi img {
-   position: absolute;
-   top: -80%;
+    top: -80%;
+}
+
+/* --- MEDIA QUERY PARA MÓVILES Y TABLETS --- */
+@media (max-width: 1024px) {
+    .cuerpo, .contenedor_platos_tipicos {
+        padding: 120px 20px 0;
+    }
+
+    .titulo_principal, .titulo_seccion {
+        font-size: 35px;
+    }
+
+    /* En tablets, las imágenes ya no pueden estar tan "afuera" */
+    .contenedor_platillo .contenedor_img_platillo img {
+        right: 0;
+        height: 150%;
+        top: -40%;
+    }
+}
+
+@media (max-width: 768px) {
+    .contenedor_platillo .contenido {
+        grid-template-columns: 1fr; /* Cambia a una sola columna */
+        text-align: center;
+    }
+
+    .contenedor_platillo .contenedor_img_platillo {
+        height: auto; /* El alto lo define la imagen */
+        order: -1;    /* Pone la imagen ARRIBA del texto */
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Reset de posición absoluta para que la imagen no se salga de la pantalla */
+    .contenedor_platillo .contenedor_img_platillo img,
+    .contenedor_platillo .contenedor_img_platillo.kimchi img,
+    .contenedor_platillo .contenedor_img_platillo.bibimbap img,
+    .contenedor_platillo .contenedor_img_platillo.Bulgogi img {
+        position: static; 
+        height: auto;
+        width: 100%;
+        max-width: 300px; /* Tamaño máximo en celulares */
+        transform: none;
+    }
+
+    .titulo_principal {
+        font-size: 28px;
+    }
+
+    .titulo_seccion {
+        font-size: 24px;
+        line-height: 1.2;
+    }
 }
 
 .footer {
-   margin-top: 100px;
-   background-color: #D9D9D9;
+    margin-top: 100px;
+    background-color: #D9D9D9;
 }
