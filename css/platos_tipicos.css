@@ -73,28 +73,28 @@
     .contenedor_platillo .contenedor_img_platillo img {
         position: absolute !important;
         /* Volvemos a los valores grandes que tenías al inicio */
-        height: 100% !important; 
+        height: 220% !important; 
         top: -70% !important;
-        right: -10% !important;
+        right: -20% !important;
         width: auto !important;
         max-width: none !important;
     }
 
     /* Ajustes específicos por plato para que no tapen el texto */
     .contenedor_platillo .contenedor_img_platillo.kimchi img { 
-        height: 10% !important; 
-        top: -10% !important; 
+        height: 180% !important; 
+        top: -60% !important; 
     }
     
     .contenedor_platillo .contenedor_img_platillo.bibimbap img { 
-        height: 10% !important; 
-        top: -7% !important; 
-        right: -3% !important; 
+        height: 200% !important; 
+        top: -75% !important; 
+        right: -32% !important; 
     }
 
     .contenedor_platillo .contenedor_img_platillo.Bulgogi img { 
-        height: 5% !important; 
-        top: -7% !important; 
+        height: 230% !important; 
+        top: -85% !important; 
     }
 
     .contenedor_platillo .titulo_seccion {
