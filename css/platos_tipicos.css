@@ -1,32 +1,26 @@
 @import url(./styles.css);
 
-/* 1. REGLA DE ORO: Evita que cualquier imagen se salga de su cuadro */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
+/* 1. ESTILOS BASE (Móvil Primero) */
 .cuerpo {
-    padding: 150px 5% 0;
+    padding: 100px 20px 0;
 }
 
 .contenedor_platos_tipicos {
     display: flex;
-    padding: 0 5%;
     flex-direction: column;
     text-align: center;
-    gap: 30px;
+    gap: 20px;
 }
 
 .titulo_principal, .titulo_seccion {
     color: #093d05;
-    font-size: 3rem; /* Cambiado a rem para responsividad */
     font-family: 'InknutAntiqua-SemiBold';
+    font-size: 28px; /* Tamaño para móvil */
 }
 
-.contenedor_platos_tipicos P {
+.contenedor_platos_tipicos p {
     color: #303030;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .contenedor_platillo {
@@ -34,91 +28,72 @@ img {
     background-color: #D9D9D9;
     border-radius: 20px;
     padding: 20px;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
-/* --- DISEÑO PARA PC --- */
+/* Diseño de contenido en móvil: Imagen arriba, texto abajo */
 .contenedor_platillo .contenido {
-    display: grid;
-    grid-template-columns: 1fr 0.5fr;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .contenedor_platillo .contenedor_img_platillo {
+    order: -1; /* Pone la imagen al principio */
     width: 100%;
-    height: 300px; /* Alto fijo solo para PC */
-    position: relative;
+    display: flex;
+    justify-content: center;
 }
 
-/* Efecto de superposición solo para PC */
 .contenedor_platillo .contenedor_img_platillo img {
-    position: absolute;
-    top: -70%;
-    right: -20%;
-    height: 220%;
-    width: auto;
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    display: block;
 }
 
-.contenedor_platillo .contenedor_img_platillo.kimchi img { top: -60%; height: 180%; }
-.contenedor_platillo .contenedor_img_platillo.bibimbap img { top: -75%; right: -32%; height: 200%; }
-.contenedor_platillo .contenedor_img_platillo.Bulgogi img { top: -80%; }
+/* 2. ESTILOS PARA ESCRITORIO (Solo aplica en pantallas grandes) */
+@media (min-width: 769px) {
+    .cuerpo {
+        padding: 150px 100px 0;
+    }
 
-/* --- SOLUCIÓN PARA MÓVILES (RESET TOTAL) --- */
-@media (max-width: 768px) {
-    
-    .cuerpo { padding-top: 100px; }
+    .contenedor_platos_tipicos {
+        padding: 0 100px;
+    }
 
-    .titulo_principal { font-size: 2rem; }
-    .titulo_seccion { font-size: 1.5rem; line-height: 1.2; }
+    .titulo_principal, .titulo_seccion {
+        font-size: 50px;
+    }
 
     .contenedor_platillo .contenido {
-        display: flex;
-        flex-direction: column; /* Apilamos: Imagen arriba, texto abajo */
-        gap: 20px;
+        display: grid;
+        grid-template-columns: 1fr 0.5fr;
+        align-items: center;
     }
 
     .contenedor_platillo .contenedor_img_platillo {
-        order: -1; /* Mueve la imagen al principio */
-        height: auto !important; /* IMPORTANTE: Quita el alto de 300px de PC */
-        position: static !important;
-        width: 100%;
-        display: flex;
-        justify-content: center;
+        height: 300px;
+        position: relative;
+        order: 1; /* Vuelve a su lugar a la derecha */
     }
 
-    /* Forzamos a que la imagen se quede dentro del cuadro gris */
-    .contenedor_platillo .contenedor_img_platillo img,
-    .contenedor_platillo .contenedor_img_platillo.kimchi img,
-    .contenedor_platillo .contenedor_img_platillo.bibimbap img,
-    .contenedor_platillo .contenedor_img_platillo.Bulgogi img {
-        position: static !important; /* Quita el absolute */
-        height: auto !important;     /* Quita el 220% de PC */
-        width: 100% !important;      /* Se ajusta al ancho del cuadro */
-        max-width: 250px;            /* No dejes que crezca demasiado */
-        margin: 0 auto;
-        top: auto !important;
-        right: auto !important;
-        transform: none !important;
-    }
-
-    .contenedor_platos_tipicos, .cuerpo {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-}
-
-/* --- DISEÑO PARA TABLETS --- */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .titulo_principal, .titulo_seccion {
-        font-size: 2.5rem;
-    }
-
-    .contenedor_platillo .contenedor_img_platillo {
-        height: 250px; /* Ajuste para tablets */
-    }
-
+    /* Aquí aplicamos el efecto de superposición SOLO en PC */
     .contenedor_platillo .contenedor_img_platillo img {
-        height: 180%; /* Ajuste menor */
+        position: absolute;
+        top: -70%;
+        right: -20%;
+        height: 220%;
+        width: auto;
+        max-width: none;
+    }
+
+    .contenedor_platillo .contenedor_img_platillo.kimchi img { top: -60%; right: -20%; height: 180%; }
+    .contenedor_platillo .contenedor_img_platillo.bibimbap img { top: -75%; right: -32%; height: 200%; }
+    .contenedor_platillo .contenedor_img_platillo.Bulgogi img { top: -80%; }
+    
+    .contenedor_platillo .titulo_seccion {
+        line-height: 80px;
     }
 }
 
