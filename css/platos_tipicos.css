@@ -4,7 +4,7 @@
 * { box-sizing: border-box; }
 
 .cuerpo {
-    padding: 100px 20px 0; /* Espacio para el menú */
+    padding: 100px 20px 0;
 }
 
 .contenedor_platos_tipicos {
@@ -28,7 +28,6 @@
     margin-top: 20px;
 }
 
-/* Apilamos todo en una sola columna */
 .contenedor_platillo .contenido {
     display: flex;
     flex-direction: column; 
@@ -36,13 +35,13 @@
 }
 
 .contenedor_platillo .contenedor_img_platillo {
-    order: -1; /* La imagen sale primero (arriba) */
+    order: -1; 
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-/* La imagen se queda en su sitio, centrada y sin volar */
+/* Imagen en móvil: centrada y dentro del cuadro */
 .contenedor_platillo .contenedor_img_platillo img {
     position: static !important;
     width: 100% !important;
@@ -52,61 +51,52 @@
     transform: none !important;
 }
 
-/* --- 2. ESTILOS SOLO PARA PC (Pantallas grandes) --- */
-@media (min-width: 1024px) {
-    .cuerpo {
-        padding: 150px 100px 0;
-    }
+/* --- 2. ESTILOS PARA PC (Pantallas grandes) --- */
+@media (min-width: 1025px) {
+    .cuerpo { padding: 150px 100px 0; }
+    .titulo_principal, .titulo_seccion { font-size: 50px; }
 
-    .contenedor_platos_tipicos {
-        padding: 0 100px;
-        gap: 80px; /* Más espacio entre platos en PC */
-    }
-
-    .titulo_principal, .titulo_seccion {
-        font-size: 50px;
-    }
-
-    /* Volvemos al diseño de dos columnas en PC */
     .contenedor_platillo .contenido {
         display: grid;
-        grid-template-columns: 1.2fr 0.8fr; /* El texto ocupa más espacio */
+        grid-template-columns: 1fr 0.6fr; /* El texto tiene más espacio */
         align-items: center;
-        text-align: left; /* Texto a la izquierda en PC */
-        gap: 40px;
+        text-align: left; /* Texto alineado a la izquierda en PC */
     }
 
     .contenedor_platillo .contenedor_img_platillo {
-        height: 250px; /* Altura controlada del cuadro gris */
+        height: 280px; /* Altura del cuadro gris */
         position: relative;
-        order: 1; /* La imagen vuelve a la derecha */
+        order: 1; 
     }
 
-    /* REACTIVAMOS EL EFECTO DE PC (Imágenes voladoras) */
+    /* Reactivamos el efecto de "Platos Voladores" en PC */
     .contenedor_platillo .contenedor_img_platillo img {
-        position: absolute;
-        width: auto;
-        /* Ajustamos estos valores para que no se vea "dañado" ni gigante */
-        height: 180%; 
-        top: -40%;
-        right: -15%;
+        position: absolute !important;
+        width: auto !important;
+        max-width: none !important;
+        /* Volvemos a tamaños grandes para el efecto de superposición */
+        height: 180% !important; 
+        top: -40% !important;
+        right: -15% !important;
     }
 
-    /* Ajustes específicos para cada plato en PC */
+    /* Ajustes finos para que cada plato quede en su lugar exacto */
     .contenedor_platillo .contenedor_img_platillo.kimchi img { 
-        height: 160%; 
-        top: -30%; 
+        height: 150% !important; 
+        top: -25% !important; 
+        right: -10% !important;
     }
-    
+
     .contenedor_platillo .contenedor_img_platillo.bibimbap img { 
-        height: 180%; 
-        top: -50%; 
-        right: -25%; 
+        height: 180% !important; 
+        top: -55% !important; 
+        right: -25% !important; 
     }
 
     .contenedor_platillo .contenedor_img_platillo.Bulgogi img { 
-        height: 190%; 
-        top: -60%; 
+        height: 190% !important; 
+        top: -65% !important; 
+        right: -10% !important;
     }
 }
 
