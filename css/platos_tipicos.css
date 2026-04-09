@@ -1,12 +1,12 @@
 @import url(./styles.css);
 
-/* 1. ESTILOS PARA MÓVIL (Como la imagen que quieres) */
+
 * {
     box-sizing: border-box;
 }
 
 .cuerpo {
-    padding: 100px 20px 20px; /* Espacio para el header fijo */
+    padding: 100px 20px 20px;
 }
 
 .contenedor_platos_tipicos {
