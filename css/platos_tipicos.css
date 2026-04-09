@@ -37,14 +37,14 @@
 
 .contenedor_platillo .contenedor_img_platillo {
     order: -1; 
-    width: 100%;
+    width: 10%;
     display: flex;
     justify-content: center;
 }
 
 .contenedor_platillo .contenedor_img_platillo img {
     position: static !important;
-    width: 100% !important;
+    width: 10% !important;
     max-width: 280px !important;
     height: auto !important;
     margin: 0 auto;
