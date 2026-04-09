@@ -63,7 +63,7 @@
 /* Imagen contenida y escalada para el celular */
 .contenedor_platillo .contenedor_img_platillo img {
     width: 100%;
-    max-width: 280px; /* Tamaño ideal para que no se vea gigante */
+    max-width: 80px; /* Tamaño ideal para que no se vea gigante */
     height: auto;
     position: static; /* Quita el posicionamiento de PC */
 }
