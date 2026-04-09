@@ -1,15 +1,13 @@
 @import url(./styles.css);
 
-/* Configuración base para imágenes */
+/* 1. REGLA DE ORO: Evita que cualquier imagen se salga de su cuadro */
 img {
     max-width: 100%;
     height: auto;
-    display: block;
 }
 
 .cuerpo {
-    /* Paddings flexibles para que respire en PC y móvil */
-    padding: 150px 5% 0; 
+    padding: 150px 5% 0;
 }
 
 .contenedor_platos_tipicos {
@@ -35,119 +33,77 @@ img {
     width: 100%;
     background-color: #D9D9D9;
     border-radius: 20px;
-    padding: 40px 20px;
+    padding: 20px;
     margin-top: 50px;
 }
 
-.contenedor_platillo .titulo_seccion {
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-
-.contenedor_platillo p {
-    font-size: 18px;
-    color: rgba(0, 0, 0, .75);
-}
-
-.contenedor_platillo p:nth-child(2) {
-    margin-top: 20px;
-    color: #093d05;
-}
-
-/* --- DISEÑO PARA ESCRITORIO (PC) --- */
-/* (Mantenemos el efecto de superposición aquí) */
+/* --- DISEÑO PARA PC --- */
 .contenedor_platillo .contenido {
     display: grid;
     grid-template-columns: 1fr 0.5fr;
     align-items: center;
-    gap: 20px;
 }
 
 .contenedor_platillo .contenedor_img_platillo {
     width: 100%;
-    height: 300px;
+    height: 300px; /* Alto fijo solo para PC */
     position: relative;
 }
 
+/* Efecto de superposición solo para PC */
 .contenedor_platillo .contenedor_img_platillo img {
     position: absolute;
     top: -70%;
     right: -20%;
     height: 220%;
+    width: auto;
 }
 
-.contenedor_platillo .contenedor_img_platillo.kimchi img {
-    top: -60%;
-    right: -20%;
-    height: 180%;
-}
+.contenedor_platillo .contenedor_img_platillo.kimchi img { top: -60%; height: 180%; }
+.contenedor_platillo .contenedor_img_platillo.bibimbap img { top: -75%; right: -32%; height: 200%; }
+.contenedor_platillo .contenedor_img_platillo.Bulgogi img { top: -80%; }
 
-.contenedor_platillo .contenedor_img_platillo.bibimbap img {
-    top: -75%;
-    right: -32%;
-    height: 200%;
-}
-
-.contenedor_platillo .contenedor_img_platillo.Bulgogi img {
-    top: -80%;
-}
-
-/* --- MEDIA QUERY PARA TABLETS Y MÓVILES (RESET DURO) --- */
-@media (max-width: 1024px) {
-    .cuerpo, .contenedor_platos_tipicos {
-        padding: 120px 20px 0;
-    }
-
-    .titulo_principal, .titulo_seccion {
-        font-size: 35px;
-    }
-}
-
+/* --- SOLUCIÓN PARA MÓVILES (RESET TOTAL) --- */
 @media (max-width: 768px) {
-    /* 1. Cambiamos Grid por Flex y lo apilamos verticalmente */
+    
+    .cuerpo { padding-top: 100px; }
+
+    .titulo_principal { font-size: 30px; }
+    .titulo_seccion { font-size: 24px; line-height: 1.2; }
+
     .contenedor_platillo .contenido {
         display: flex;
-        flex-direction: column; 
-        text-align: center;
+        flex-direction: column; /* Apilamos: Imagen arriba, texto abajo */
         gap: 20px;
     }
 
-    /* 2. Pone la imagen ARRIBA del texto en el celular */
     .contenedor_platillo .contenedor_img_platillo {
-        order: -1; 
+        order: -1; /* Mueve la imagen al principio */
+        height: auto !important; /* IMPORTANTE: Quita el alto de 300px de PC */
+        position: static !important;
         width: 100%;
-        max-width: 300px; /* Tamaño máximo en celulares */
-        height: auto;
-        margin: 0 auto; /* Centramos el contenedor */
-        position: relative; /* Cambiamos a relative para el reset */
         display: flex;
         justify-content: center;
-        align-items: center;
     }
 
-    /* 3. RESET TOTAL DE IMÁGENES EN MÓVIL */
-    /* Usamos position: relative y width: 100% para que la imagen fluya normalmente
-       y se quede DENTRO del contenedor gris. Ignoramos los valores de PC. */
+    /* Forzamos a que la imagen se quede dentro del cuadro gris */
     .contenedor_platillo .contenedor_img_platillo img,
     .contenedor_platillo .contenedor_img_platillo.kimchi img,
     .contenedor_platillo .contenedor_img_platillo.bibimbap img,
     .contenedor_platillo .contenedor_img_platillo.Bulgogi img {
-        position: relative !important; /* !important asegura el reset */
-        top: 0 !important;
-        right: 0 !important;
-        height: auto !important;
-        width: 100% !important;
+        position: static !important; /* Quita el absolute */
+        height: auto !important;     /* Quita el 220% de PC */
+        width: 100% !important;      /* Se ajusta al ancho del cuadro */
+        max-width: 250px;            /* No dejes que crezca demasiado */
+        margin: 0 auto;
+        top: auto !important;
+        right: auto !important;
         transform: none !important;
-        margin: 0;
     }
 
-    .titulo_principal {
-        font-size: 28px;
-    }
-
-    .titulo_seccion {
-        font-size: 24px;
-        line-height: 1.2;
+    .contenedor_platos_tipicos, .cuerpo {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
 
