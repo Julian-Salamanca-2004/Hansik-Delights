@@ -44,7 +44,7 @@
 
 .contenedor_platillo .contenedor_img_platillo img {
     position: static !important;
-    width: 100% !important;
+    width: 10% !important;
     max-width: 280px !important;
     height: auto !important;
     margin: 0 auto;
