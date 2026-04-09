@@ -6,6 +6,10 @@
    text-align: center;
 }
 
+.cuerpo {
+    padding: 100px 20px 20px;
+}
+
 .txt_galeria {
    color: #303030;
    font-size: 18px; /* Un poco más pequeño para que quepa mejor */
