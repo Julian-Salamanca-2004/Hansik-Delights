@@ -73,9 +73,9 @@
     .contenedor_platillo .contenedor_img_platillo img {
         position: absolute !important;
         /* Volvemos a los valores grandes que tenías al inicio */
-        height: 220% !important; 
+        height: 100% !important; 
         top: -70% !important;
-        right: -20% !important;
+        right: -10% !important;
         width: auto !important;
         max-width: none !important;
     }
