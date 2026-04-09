@@ -1,10 +1,15 @@
 @import url(./styles.css);
 
-/* --- 1. ESTILOS BASE (Móvil y Tablet) --- */
-* { box-sizing: border-box; }
+/* --- 1. RESET --- */
+* { 
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
 
+/* --- 2. BASE (MÓVIL) --- */
 .cuerpo {
-    padding: 100px 20px 0; 
+    padding: 80px 15px 0; 
 }
 
 .contenedor_platos_tipicos {
@@ -14,21 +19,22 @@
     gap: 20px;
 }
 
-.titulo_principal, .titulo_seccion {
+.titulo_principal, 
+.titulo_seccion {
     color: #093d05;
     font-family: 'InknutAntiqua-SemiBold';
-    font-size: 28px;
+    font-size: 24px;
 }
 
 .contenedor_platillo {
     width: 100%;
     background-color: #D9D9D9;
     border-radius: 20px;
-    padding: 20px;
+    padding: 15px;
     margin-top: 20px;
 }
 
-/* En móvil: Una sola fila, imagen arriba */
+/* MÓVIL */
 .contenedor_platillo .contenido {
     display: flex;
     flex-direction: column; 
@@ -36,73 +42,96 @@
 }
 
 .contenedor_platillo .contenedor_img_platillo {
-    order: -1; 
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
 .contenedor_platillo .contenedor_img_platillo img {
-    position: static !important;
-    width: 100% !important;
-    max-width: 280px !important;
-    height: auto !important;
-    margin: 0 auto;
-    transform: none !important;
+    width: 100%;
+    max-width: 250px;
+    height: auto;
 }
 
-/* --- 2. ESTILOS PARA PC (Aquí es donde recuperamos el diseño original) --- */
-@media (min-width: 1025px) {
-    .cuerpo { padding: 150px 100px 0; }
-    .titulo_principal, .titulo_seccion { font-size: 50px; }
+/* --- 3. TABLET --- */
+@media (min-width: 768px) {
+
+    .cuerpo {
+        padding: 100px 40px 0;
+    }
+
+    .titulo_principal, 
+    .titulo_seccion {
+        font-size: 36px;
+    }
 
     .contenedor_platillo .contenido {
         display: grid;
-        grid-template-columns: 1fr 0.5fr;
+        grid-template-columns: 1fr 1fr;
         align-items: center;
-        text-align: left; /* Texto a la izquierda para que se vea pro */
+        text-align: left;
+        gap: 20px;
     }
 
-    .contenedor_platillo .contenedor_img_platillo {
-        height: 300px; /* Altura del cuadro gris */
-        position: relative;
-        order: 1; /* Imagen a la derecha */
-    }
-
-    /* REGLAS PARA QUE EL PLATO VUELVA A SER GRANDE Y VOLADOR */
     .contenedor_platillo .contenedor_img_platillo img {
-        position: absolute !important;
-        /* Volvemos a los valores grandes que tenías al inicio */
-        height: 220% !important; 
-        top: -70% !important;
-        right: -20% !important;
-        width: auto !important;
-        max-width: none !important;
-    }
-
-    /* Ajustes específicos por plato para que no tapen el texto */
-    .contenedor_platillo .contenedor_img_platillo.kimchi img { 
-        height: 180% !important; 
-        top: -60% !important; 
-    }
-    
-    .contenedor_platillo .contenedor_img_platillo.bibimbap img { 
-        height: 200% !important; 
-        top: -75% !important; 
-        right: -32% !important; 
-    }
-
-    .contenedor_platillo .contenedor_img_platillo.Bulgogi img { 
-        height: 230% !important; 
-        top: -85% !important; 
-    }
-
-    .contenedor_platillo .titulo_seccion {
-        line-height: 80px;
+        max-width: 300px;
     }
 }
 
+/* --- 4. PC --- */
+@media (min-width: 1025px) {
+
+    .cuerpo { 
+        padding: 150px 100px 0; 
+    }
+
+    .titulo_principal, 
+    .titulo_seccion { 
+        font-size: 50px; 
+    }
+
+    .contenedor_platillo .contenido {
+        grid-template-columns: 1fr 0.6fr;
+    }
+
+    .contenedor_platillo .contenedor_img_platillo {
+        position: relative;
+        height: 280px;
+    }
+
+    .contenedor_platillo .contenedor_img_platillo img {
+        position: absolute;
+        height: 160%;
+        top: -40%;
+        right: -10%;
+        width: auto;
+    }
+
+    /* Ajustes por plato */
+    .kimchi img { 
+        height: 150%; 
+        top: -30%; 
+    }
+    
+    .bibimbap img { 
+        height: 170%; 
+        top: -50%; 
+        right: -20%; 
+    }
+
+    .bulgogi img { 
+        height: 180%; 
+        top: -60%; 
+    }
+
+    .contenedor_platillo .titulo_seccion {
+        line-height: 1.2;
+    }
+}
+
+/* --- 5. FOOTER --- */
 .footer {
-    margin-top: 100px;
+    margin-top: 80px;
     background-color: #D9D9D9;
-}  
+    padding: 20px;
+}
