@@ -68,14 +68,16 @@
 
 .contenedor_platillo .contenedor_img_platillo.bibimbap img {
    position: absolute;
-   top: -75%;
-   right: -32%;
-   height: 200%;
+   top: -30%;
+   right: -20%;
+   height: 100%;
 }
 
 .contenedor_platillo .contenedor_img_platillo.Bulgogi img {
    position: absolute;
    top: -90%;
+   right: -20%;
+   height: 100%;
 }
 
 .footer {
