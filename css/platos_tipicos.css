@@ -1,205 +1,88 @@
 @import url(./styles.css);
 
-/* --- RESET --- */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-/* --- HEADER --- */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1px 2px;
-    flex-wrap: wrap;
-}
-
-.logo img {
-    width: 100px;
-}
-
-.contenedor-nav {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-nav ul {
-    display: flex;
-    gap: 15px;
-    list-style: none;
-}
-
-/* --- BASE (MÓVIL PRIMERO) --- */
 .cuerpo {
-    padding: 90px 15px 0;
+   padding: 150px 100px 0;
 }
 
 .contenedor_platos_tipicos {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    gap: 20px;
+   display: flex;
+   padding: 0px 100px;
+   flex-direction: column;
+   text-align: center;
+   gap: 30px;
 }
 
-.titulo_principal,
-.titulo_seccion {
-    color: #093d05;
-    font-family: 'InknutAntiqua-SemiBold';
-    font-size: 26px;
+.titulo_principal, .titulo_seccion {
+   color: #093d05;
+   font-size: 50px;
+   font-family: 'InknutAntiqua-SemiBold';
 }
 
-p {
-    font-size: 16px;
-    line-height: 1.6;
+.contenedor_platos_tipicos P {
+   color: #303030;
+   font-size: 18px;
 }
 
-/* --- TARJETAS --- */
 .contenedor_platillo {
-    width: 80%;
-    background-color: #D9D9D9;
-    border-radius: 20px;
-    padding: 20px 15px;
-    margin-top: 20px;
+   width: 10%;
+   background-color: #D9D9D9;
+   border-radius: 20px;
+   padding: 20px;
+   margin-top: 50px;
+
+   & .titulo_seccion {
+      line-height: 80px;
+   }
 }
 
-/* MÓVIL: TODO EN COLUMNA */
+.contenedor_platillo p {
+   font-size: 18px;
+   color: rgba(0, 0, 0, .75);
+}
+
+.contenedor_platillo p:nth-child(2) {
+   margin-top: 20px;
+   color: #093d05;
+}
+
 .contenedor_platillo .contenido {
-    display: flex !important;
-    flex-direction: column !important;
-    text-align: center;
-    gap: 15px;
+   display: grid;
+   grid-template-columns: 1fr .5fr;
 }
 
-.contenedor_textos {
-    width: 100%;
+.contenedor_platillo .contenedor_img_platillo {
+   width: 100%;
+   height: 300px;
+   position: relative;
 }
 
-/* IMAGEN MÓVIL */
-.contenedor_img_platillo {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.contenedor_platillo .contenedor_img_platillo img {
+   position: absolute;
+   top: -70%;
+   right: -20%;
+   height: 220%;
 }
 
-.contenedor_img_platillo img {
-    position: static !important;
-    width: 90% !important;
-    max-width: 260px !important;
-    height: auto !important;
-    transform: none !important;
+.contenedor_platillo .contenedor_img_platillo.kimchi img {
+   position: absolute;
+   top: -60%;
+   right: -20%;
+   height: 180%;
 }
 
-/* --- TABLET --- */
-@media (min-width: 768px) {
-
-    .cuerpo {
-        padding: 100px 40px 0;
-    }
-
-    .titulo_principal,
-    .titulo_seccion {
-        font-size: 36px;
-    }
-
-    .contenedor_platillo .contenido {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-        text-align: left;
-        gap: 20px;
-    }
-
-    .contenedor_img_platillo img {
-        max-width: 300px !important;
-    }
+.contenedor_platillo .contenedor_img_platillo.bibimbap img {
+   position: absolute;
+   top: -75%;
+   right: -32%;
+   height: 200%;
 }
 
-/* --- PC (EFECTO PRO) --- */
-@media (min-width: 1025px) {
-
-    .cuerpo {
-        padding: 150px 100px 0;
-    }
-
-    .titulo_principal,
-    .titulo_seccion {
-        font-size: 50px;
-    }
-
-    .contenedor_platillo .contenido {
-        grid-template-columns: 1fr 0.6fr;
-    }
-
-    .contenedor_img_platillo {
-        position: relative;
-        height: 280px;
-    }
-
-    /* 🔥 EFECTO PLATO VOLADOR SOLO EN PC */
-    .contenedor_img_platillo img {
-        position: absolute !important;
-        height: 160% !important;
-        top: -40% !important;
-        right: -10% !important;
-        width: auto !important;
-        max-width: none !important;
-    }
-
-    /* ajustes finos */
-    .kimchi img {
-        height: 150% !important;
-        top: -30% !important;
-    }
-
-    .bibimbap img {
-        height: 170% !important;
-        top: -50% !important;
-        right: -20% !important;
-    }
-
-    .Bulgogi img {
-        height: 180% !important;
-        top: -60% !important;
-    }
-
-    .contenedor_platillo .titulo_seccion {
-        line-height: 1.2;
-    }
+.contenedor_platillo .contenedor_img_platillo.Bulgogi img {
+   position: absolute;
+   top: -80%;
 }
 
-/* --- HEADER EN MÓVIL --- */
-@media (max-width: 768px) {
-
-    header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 10px;
-    }
-
-    .contenedor-nav {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-/* --- FOOTER --- */
 .footer {
-    margin-top: 80px;
-    background-color: #D9D9D9;
-    padding: 20px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    text-align: center;
+   margin-top: 100px;
+   background-color: #D9D9D9;
 }
