@@ -19,20 +19,16 @@
 }
 
 .contenedor_platos_tipicos P {
-   color: #303030;
+   color: #828282;
    font-size: 18px;
 }
 
 .contenedor_platillo {
-   width: 10%;
+   width: 100%;
    background-color: #D9D9D9;
    border-radius: 20px;
    padding: 20px;
    margin-top: 50px;
-
-   & .titulo_seccion {
-      line-height: 80px;
-   }
 }
 
 .contenedor_platillo p {
@@ -79,7 +75,7 @@
 
 .contenedor_platillo .contenedor_img_platillo.Bulgogi img {
    position: absolute;
-   top: -80%;
+   top: -90%;
 }
 
 .footer {
