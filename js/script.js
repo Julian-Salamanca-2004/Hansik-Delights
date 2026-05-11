@@ -1,40 +1,46 @@
+// --- 1. MENSAJES PERSONALIZADOS (Paso 3 de la guía) ---
 const saludoElt = document.getElementById('saludo-dinamico');
-const horaActual = new Date().getHours();
+const hora = new Date().getHours();
 
-if (horaActual < 12) {
-    saludoElt.textContent = "¡Buenos días! Bienvenido a HanSik Delights";
-} else if (horaActual < 18) {
-    saludoElt.textContent = "¡Buenas tardes! Disfruta del sabor coreano";
-} else {
-    saludoElt.textContent = "¡Buenas noches! Una cena especial te espera";
-}
-
-// Arreglo con las rutas de tus imágenes (asegúrate de que los nombres coincidan)
-const imagenesSlider = ["imagenes/img1.jpg", "imagenes/img2.jpg", "imagenes/img3.jpg"];
-let indiceActual = 0;
-
-// Supongamos que quieres que cambie la imagen principal del banner
-const imgBanner = document.querySelector('.banner'); 
-
-function rotarImagenes() {
-    indiceActual = (indiceActual + 1) % imagenesSlider.length;
-    // Cambia el fondo del banner dinámicamente
-    imgBanner.style.backgroundImage = `url('${imagenesSlider[indiceActual]}')`;
-}
-
-// Cambia cada 3 segundos (3000 milisegundos)
-setInterval(rotarImagenes, 3000);
-
-const botones = document.querySelectorAll('.btn');
-
-botones.forEach(boton => {
-    boton.addEventListener('mouseover', () => {
-        boton.style.backgroundColor = "#d35400"; // Un naranja más oscuro
-        boton.style.transform = "scale(1.05)";
-    });
+if (saludoElt) {
+    let mensaje = "";
+    if (hora < 12) mensaje = "¡Buenos días! Bienvenido a HanSik";
+    else if (hora < 18) mensaje = "¡Buenas tardes! Disfruta el sabor coreano";
+    else mensaje = "¡Buenas noches! Una cena especial te espera";
     
-    boton.addEventListener('mouseout', () => {
-        boton.style.backgroundColor = ""; // Vuelve al original de tu CSS
-        boton.style.transform = "scale(1)";
+    // Esto cambia el texto dinámicamente manteniendo el estilo
+    saludoElt.innerHTML = `<p>${mensaje}</p><p>Delights</p>`;
+}
+
+// --- 2. SLIDER DE IMÁGENES AUTOMÁTICO (Paso 3 de la guía) ---
+// IMPORTANTE: Verifica que estos nombres de archivos existan en tu carpeta /imagenes
+const imagenes = [
+    "imagenes/img1.jpg", 
+    "imagenes/img2.jpg", 
+    "imagenes/img3.jpg"
+];
+let indice = 0;
+const banner = document.getElementById('banner-dinamico');
+
+if (banner && imagenes.length > 0) {
+    setInterval(() => {
+        indice = (indice + 1) % imagenes.length;
+        // Cambia el fondo suavemente
+        banner.style.backgroundImage = `url('${imagenes[indice]}')`;
+    }, 5000); // 5000ms = 5 segundos
+}
+
+// --- 3. EVENTOS MOUSEOVER/MOUSEOUT (Paso 3 de la guía) ---
+const botonContacto = document.querySelector('.btn');
+
+if (botonContacto) {
+    botonContacto.addEventListener('mouseover', () => {
+        botonContacto.style.backgroundColor = "#d35400"; // Cambia color
+        botonContacto.style.transform = "scale(1.1)";    // Agranda un poco
     });
-});
+
+    botonContacto.addEventListener('mouseout', () => {
+        botonContacto.style.backgroundColor = "";       // Vuelve al original
+        botonContacto.style.transform = "scale(1)";     // Vuelve al tamaño normal
+    });
+}
