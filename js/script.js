@@ -1,0 +1,1 @@
+alert("¡JavaScript vinculado correctamente en HanSik Delights!");
