@@ -1,46 +1,58 @@
-// --- 1. MENSAJES PERSONALIZADOS (Paso 3 de la guía) ---
-const saludoElt = document.getElementById('saludo-dinamico');
-const hora = new Date().getHours();
+document.addEventListener('DOMContentLoaded', () => {
+    const contenedor = document.getElementById('saludo-dinamico');
+    const hora = new Date().getHours();
+    let textoSaludo = "";
 
-if (saludoElt) {
-    let mensaje = "";
-    if (hora < 12) mensaje = "¡Buenos días! Bienvenido a HanSik";
-    else if (hora < 18) mensaje = "¡Buenas tardes! Disfruta el sabor coreano";
-    else mensaje = "¡Buenas noches! Una cena especial te espera";
+   
+    if (hora >= 6 && hora < 12) {
+        textoSaludo = "¡Buenos días!";
+    } else if (hora >= 12 && hora < 18) {
+        textoSaludo = "¡Buenas tardes!";
+    } else {
+        textoSaludo = "¡Buenas noches!";
+    }
+
     
-    // Esto cambia el texto dinámicamente manteniendo el estilo
-    saludoElt.innerHTML = `<p>${mensaje}</p><p>Delights</p>`;
-}
+    if (contenedor) {
+        contenedor.textContent = `${textoSaludo} Sea bienvenido a HanSik Delights, un lugar para conocer la comida coreana.`;
+    }
+});
 
-// --- 2. SLIDER DE IMÁGENES AUTOMÁTICO (Paso 3 de la guía) ---
-// IMPORTANTE: Verifica que estos nombres de archivos existan en tu carpeta /imagenes
-const imagenes = [
-    "imagenes/img1.jpg", 
-    "imagenes/img2.jpg", 
-    "imagenes/img3.jpg"
-];
-let indice = 0;
-const banner = document.getElementById('banner-dinamico');
+document.addEventListener('DOMContentLoaded', () => {
+    
+    
+    const todosLosBotones = document.querySelectorAll('nav ul li a, .btn, .bt');
 
-if (banner && imagenes.length > 0) {
-    setInterval(() => {
-        indice = (indice + 1) % imagenes.length;
-        // Cambia el fondo suavemente
-        banner.style.backgroundImage = `url('${imagenes[indice]}')`;
-    }, 5000); // 5000ms = 5 segundos
-}
+    todosLosBotones.forEach(boton => {
+        boton.addEventListener('mouseover', () => {
+            boton.style.color = "#f1c40f"; // Color amarillo
+            boton.style.transition = "0.3s";
+            boton.style.textShadow = "0px 0px 8px rgba(241, 196, 15, 0.7)";
+            
+            boton.style.transform = "scale(1.05)";
+        });
 
-// --- 3. EVENTOS MOUSEOVER/MOUSEOUT (Paso 3 de la guía) ---
-const botonContacto = document.querySelector('.btn');
-
-if (botonContacto) {
-    botonContacto.addEventListener('mouseover', () => {
-        botonContacto.style.backgroundColor = "#d35400"; // Cambia color
-        botonContacto.style.transform = "scale(1.1)";    // Agranda un poco
+        boton.addEventListener('mouseout', () => {
+            boton.style.color = ""; 
+            boton.style.textShadow = "";
+            boton.style.transform = "scale(1)";
+        });
     });
 
-    botonContacto.addEventListener('mouseout', () => {
-        botonContacto.style.backgroundColor = "";       // Vuelve al original
-        botonContacto.style.transform = "scale(1)";     // Vuelve al tamaño normal
-    });
-}
+    // SALUDO DINÁMICO SEGÚN LA HORA 
+    const contenedor = document.getElementById('saludo-dinamico');
+    const hora = new Date().getHours();
+    let textoSaludo = "";
+
+    if (hora >= 6 && hora < 12) {
+        textoSaludo = "¡Buenos días!";
+    } else if (hora >= 12 && hora < 18) {
+        textoSaludo = "¡Buenas tardes!";
+    } else {
+        textoSaludo = "¡Buenas noches!";
+    }
+
+    if (contenedor) {
+        contenedor.textContent = `${textoSaludo} Sea bienvenido a HanSik Delights, un lugar para conocer la comida coreana.`;
+    }
+});
